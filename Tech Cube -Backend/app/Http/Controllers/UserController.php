@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller{
     public function getAllUsers($id = null){
@@ -32,14 +33,20 @@ class UserController extends Controller{
         ], 200);
     }
 
-    public function signUp(){
-        // $user->name = request['name'];
-        // $user->email = request['email'];
-        // $user->password = request['password'];
-        // $user -> save();
+    public function signUp(Request $request){
+        $user = new User;
+        $user['name'] = $request->name;
+        $user['email'] = $request->email;
+        $user['password'] = hash("sha256", $request->password);
+        $user['JWT-Token'] = hash("sha256", $request->password);
+        $user['wishlist'] = 0;
+        $user['type'] = '1';
+        $user -> save();
+
         return response()->json([
             "status" => "Success",
-            "JWT" => 'JWT token'
+            "JWT" => 'JWT token',
+            "request" => $user,
         ], 200);
     }
 }

@@ -11,25 +11,29 @@ use App\Http\Controllers\AuthController;
 // Route::controller(AuthController::class)->group(function () {
 
     Route::group(['prefix' => 'v1'], function(){
-        //open API
+        //Landing Page API
         Route::get('/', [HomepageController::class, 'getSomeItems']);
 
         // Users Routes
         Route::group(['prefix' => 'user'], function(){
-            //open API
+            // Unauthenticated API
             Route::get('/login', [UserController::class, 'login']);  
             Route::post('/signUp', [UserController::class, 'signUp']);
-            //should be only accessible by the admin (need authorization)
-            Route::get('/{id?}', [UserController::class, 'getAllUsers']);
             });
-
+        
+        // Items Routes
         Route::group(['prefix' => 'item'], function(){
-            //should be only accessible by the admin (need authorization)
-            Route::post('/addItem', [ItemController::class, 'addItem']);
-            //open API
+            // Unauthenticated API
             Route::get('/offers', [ItemController::class, 'getOffers']);
-            //open API
             Route::get('/{id?}', [ItemController::class, 'getItem']);
             });
 
+        // Admin Routes
+        Route::group(['prefix' => 'admin'], function(){
+            // Authenticated & Authorized API
+            Route::group(['middleware' => 'role.admin'], function(){
+            Route::get('/{id?}', [UserController::class, 'getAllUsers']);
+            Route::post('/addItem', [ItemController::class, 'addItem']);
+            });
+        });
 });
