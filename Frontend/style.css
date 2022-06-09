@@ -18,4 +18,21 @@ body{
 .container{
   background-color: red;
 }
+
 /* Header */
+.banner{
+  height: 40px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner ul{
+  display: flex;
+}
+
+.banner li{
+  list-style-type: none;
+  margin-right: 20px;
+}

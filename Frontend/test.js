@@ -5,6 +5,12 @@ const HomePage = document.querySelector("#HomePage");
 const Items = document.querySelector("#Items");
 const User = document.querySelector("#User");
 
+
+// ================
+// axios.get('http://localhost:8000/api....', 
+//   { headers: { authorization: 'my secret token' } });
+
+
 HomePage.onclick = getHomepage;
 
 function getHomepage(){
