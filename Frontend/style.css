@@ -1,0 +1,21 @@
+/* CSS Reset */
+*{
+  margin: 0;  
+  box-sizing: border-box;
+}  
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+
+  width: 90%;
+  margin: auto;
+  color: white;
+  background-color: black;
+}
+.container{
+  background-color: red;
+}
+/* Header */
