@@ -15,7 +15,6 @@ class ItemController extends Controller{
         } else{
             $items = Item::find($id);
         }
-
         return response()->json([
             "status" => "success",
             "items" => $items
@@ -28,28 +27,10 @@ class ItemController extends Controller{
         } else{
             $items = Item::find($id);
         }
-
         return response()->json([
             "status" => "success",
             "items" => $items
         ]);
     }
-
-    // public function __construct(){
-    //     $this->middleware('auth:api');
-    // }
-
-
-    // // Add Token to database before
-    // public function store(Request $request){
-    //     $user = User::where('token', "$request->token")->get();
-    //     $admin = $user->type;
-    //     if($admin !== 1){
-    //         return response()->json([
-    //             "status" => "error",
-    //             "message" => "not an admin"
-    //         ]);
-    //     }
-    // }
 
 }

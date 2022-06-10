@@ -17,7 +17,7 @@ body{
 
 /* Header */
 header{
-  background-image: url(./8Wuslm.webp);
+  background-image: url(./299a2a93d4eb261e7302f2dac96ba243.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -49,22 +49,81 @@ header{
 }
 
 header > h1{
+  padding-top: 30px;
   text-align: center;
   font-size: 50px;
 }
 
 /* Offer */
 .offer{
+  margin-top: 70px;
   display: flex;
-  height: 200px;
-  background-color: red;
+  flex-wrap: wrap;
+  height: 250px;
+  /* background-color: red; */
   align-items: center;
   justify-content: space-around;
 }
 
 .offer > div {
-  border: 1px solid black;
-  height: 80%;
+  margin: 20px;
+  height: 90%;
   width: 20%;
   border-radius: 10px;
+  position: relative;
+}
+
+/* https://www.youtube.com/watch?v=iMp435G8HzY */
+.ribbon{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  overflow: hidden;
+}
+
+.ribbon::before, .ribbon::after{
+  content: "";
+  position: absolute;
+  width: 10px; height: 10px;
+
+  z-index: -1;
+}
+
+.ribbon::after{
+  bottom: 0; right: 0;
+
+}
+.ribbon span{
+  position: absolute;
+  width: 200px; height: 40px;
+  background-color: orange;
+  transform: rotate(45deg);
+  top: 40px; left: -22px;
+  text-align: center;
+}
+
+.categories{
+  margin-top:100px;
+  text-align: center;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width:900px) {
+  .offer > div {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .offer > div {
+    width: 60%;
+  }
+
+  .banner ul{
+    display: none;
+  }
 }

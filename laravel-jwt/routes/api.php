@@ -36,7 +36,6 @@ Route::middleware("role.user")->group(function(){
 Route::middleware("role.admin")->group(function(){
     Route::controller(AdminController::class)->group(function () {
         Route::post('item', 'store');
-        // Route::get('item/{id}', 'show');
         Route::put('item/{id}', 'update');
         Route::delete('item/{id}', 'destroy');
     }); 

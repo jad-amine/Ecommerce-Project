@@ -1,9 +1,9 @@
 const name1 = document.querySelector("#name");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
-const HomePage = document.querySelector("#HomePage");
-const Items = document.querySelector("#Items");
-const User = document.querySelector("#User");
+const LogIn = document.querySelector("#LogIn");
+const SignUp = document.querySelector("#SignUp");
+const Like = document.querySelector("#Like");
 
 
 // ================
@@ -11,29 +11,41 @@ const User = document.querySelector("#User");
 //   { headers: { authorization: 'my secret token' } });
 
 
-HomePage.onclick = getHomepage;
+LogIn.onclick = sendData;
 
-function getHomepage(){
+function sendData(){
+  let data = new FormData();
+  data.append('email', 'jad@sef.com');
+  data.append('password', 'test1234');
+  
+  axios.post('http://localhost:8000/api/login', data)
+  .then(res => {
+    data = res.data;
+    token = data.authorisation.token;
+    localStorage.setItem('token', token);
+    console.log(localStorage);
+  });
+}
+
+SignUp.onclick = getItems;
+
+function getItems(event){
   let data = new FormData();
   data.append('name', name1.value);
   data.append('email', email.value);
   data.append('password', password.value);
-  data.append('JWT-Token', 'lalal');
-
-  axios.post('http://localhost:8000/api/v1/user/signUp', data)
+  
+  axios.post('http://localhost:8000/api/register',data)
   .then(res => console.log(res.data));
 }
 
-Items.onclick = getItems;
-
-function getItems(event){
-  axios.get('http://localhost:8000/api/v1/item')
-  .then(res => console.log(res.data));
-}
-
-User.onclick = getUsers;
+Like.onclick = getUsers;
 
 function getUsers(event){
-  axios.get('http://localhost:8000/api/v1/user/login')
+  let data =new FormData();
+  data.append('email', 'user@gmail.com');
+  data.append('password', 'test1234')
+  axios.post('http://localhost:8000/api/like', data,
+  { headers: { Authorization: "Bearer" + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjU0ODQ5NDE0LCJleHAiOjE2NTQ4NTMwMTQsIm5iZiI6MTY1NDg0OTQxNCwianRpIjoiMkhVV242ZHkwbm9nc0VWdiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.ahiLpWh6M4a6sbXcACSrL_iIC1XsGJ9vljgYqEwA5JU'}})
   .then(res => console.log(res.data));
 }
