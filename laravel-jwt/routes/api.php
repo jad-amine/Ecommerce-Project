@@ -18,11 +18,11 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 
-
 Route::controller(ItemController::class)->group(function () {
-    Route::get('items', 'index');
+    Route::get('items/{id?}', 'index');
+    Route::get('offer/{id?}', 'offer');
     Route::post('item', 'store');
-    Route::get('item/{id}', 'show');
+    // Route::get('item/{id}', 'show');
     Route::put('item/{id}', 'update');
     Route::delete('item/{id}', 'destroy');
 }); 
