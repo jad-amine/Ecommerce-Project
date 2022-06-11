@@ -31,7 +31,19 @@ class AdminController extends Controller{
         ]);
     }
 
-    public function destroy(){
-        
+    public function destroy(Request $request){
+        $id = request('id');
+        $item = new Item;
+        $item = Item::find($id);
+        if($item){
+            $item->delete();
+            return response()->json([
+                "status" => "Item deleted",
+                "id" => $item
+            ]);
+        }
+        return response()->json([
+            "status" => "Item not found",
+        ]);
     }
 }
