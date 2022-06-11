@@ -30,6 +30,7 @@ Route::controller(ItemController::class)->group(function () {
 Route::middleware("role.user")->group(function(){
     Route::controller(UserController::class)->group(function () {
         Route::post('like', 'addLike');
+        Route::post('getLikes', 'getLikes');
     }); 
 });
 

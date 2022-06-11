@@ -26,4 +26,14 @@ class UserController extends Controller{
         ]);
     }
 
+    public function getLikes(){
+        $user = Auth::user();
+        $user = $user->id;
+        $likes = ItemUser::where('user_id', "$user")->get();
+        return response()->json([
+            "status" => "Likes retrieved",
+            "user" => $user,
+            "item" => $likes,
+        ]);
+    }
 }
