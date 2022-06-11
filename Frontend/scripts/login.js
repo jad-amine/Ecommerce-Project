@@ -18,4 +18,5 @@ log_in.addEventListener("click", ()=>{
     token = data.authorisation.token;
     localStorage.setItem('token', token);
   })
+  .catch(err=>alert('Invalid email or password'))
 });

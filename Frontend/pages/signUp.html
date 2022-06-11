@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="../styles/style.css">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,15 +15,16 @@
       <p>It's not that we Use Technology,<br>We live Technology</p>
     </div>
     <div id="login_input">
-        <input  type="text" placeholder="Name">
-        <input  type="text" placeholder="Email address or phone number">
-        <input type="password" placeholder="Password">
-        <button id="log-in">Sign Up</button>
+        <input id="name" type="text" placeholder="Name">
+        <input id="email" type="text" placeholder="Email address or phone number">
+        <input id="password" type="password" placeholder="Password">
+        <button id="signup">Sign Up</button>
         <a id="already_user" href="./login.html">Already a User ?</a>
         
         <hr>
         <a class="back" href="./index.html"><- Back to Home page</a>
     </div>
 </div>
+<script src="../scripts/signup.js"></script>
 </body>
 </html>
