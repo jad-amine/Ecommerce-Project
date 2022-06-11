@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminController;
 //     return $request->user();
 // });
 
+// Authenticate User
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');
     Route::post('register', 'register');
@@ -18,21 +19,21 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh');
 });
 
-
+// Fetch items
 Route::controller(ItemController::class)->group(function () {
     Route::get('items/{id?}', 'index');
     Route::get('offer/{id?}', 'offer');
 }); 
 
-// User like items
 
-
+// User like Route
 Route::middleware("role.user")->group(function(){
     Route::controller(UserController::class)->group(function () {
         Route::post('like', 'addLike');
     }); 
 });
 
+// Admin Routes
 Route::middleware("role.admin")->group(function(){
     Route::controller(AdminController::class)->group(function () {
         Route::post('item', 'store');
