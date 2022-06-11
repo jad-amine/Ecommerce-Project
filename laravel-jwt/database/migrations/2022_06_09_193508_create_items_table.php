@@ -15,11 +15,8 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->integer('price');
-            $table->integer('stock');
-            $table->json('specs');
-            $table->string('color');
             $table->integer('offer');
             $table->string('image');
             $table->timestamps();
