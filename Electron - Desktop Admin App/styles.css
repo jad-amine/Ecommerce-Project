@@ -289,11 +289,17 @@ td{
 #items-page h1{
   text-align: center;
   color: white;
-  font-size: 40px;
+  font-size: 60px;
   padding-top: 40px;
 }
 
-#items-page > a{
+#items-page div:first-of-type{
+  text-align: center;
+  margin-top: 30px;
+}
+
+#items-page a{
+  align-self: center;
   display: inline-block;
   margin: 30px 0px 50px 30px;
   height: 30px;
@@ -306,7 +312,7 @@ td{
   background-color: white;
 }
 
-#items-page > a:hover{
+#items-page a:hover{
   background-color: gray;
 }
 
@@ -323,6 +329,7 @@ td{
 }
 
 .greyer{
+  cursor: pointer;
   background-color : rgb(190, 190, 190);
 }
 
@@ -331,10 +338,11 @@ td{
 }
 
 .reder{
+  cursor: pointer;
   background-color: red;
 }
 .reder:hover{
-  background-color: rgb(228, 73, 73);
+  background-color: rgb(255, 149, 149);
 }
 
 /* Media Queries */
