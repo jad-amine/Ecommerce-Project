@@ -17,6 +17,7 @@ log_in.addEventListener("click", ()=>{
     localStorage.setItem('name',data.user.name);
     token = data.authorisation.token;
     localStorage.setItem('token', token);
+    location.replace("../pages/index.html");
   })
   .catch(err=>alert('Invalid email or password'))
 });

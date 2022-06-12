@@ -16,9 +16,10 @@ signup.addEventListener("click", ()=>{
   axios.post('http://localhost:8000/api/register', data)
   .then(res => {
     data = res.data;
-    console.log(data)
-    // console.log(data.authorization)
-    // console.log(data.user)
+    localStorage.setItem('name',data.user.name);
+    token = data.authorisation.token;
+    localStorage.setItem('token', token);
+    location.replace("../pages/index.html");
   })
   .catch(err=>alert('Please Choose a valid email Address and a 6 letter password !!'))
 });

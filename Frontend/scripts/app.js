@@ -1,3 +1,17 @@
+let name1 = localStorage.getItem('name'); 
+const login = document.querySelector("#login-tab") 
+const logout = document.querySelector("#logout-tab") 
+if(localStorage.getItem('name')){
+  login.innerHTML = 'Welcome ' +  name1.toUpperCase();
+  logout.innerHTML = "Sign Out";
+  logout.addEventListener("click", ()=>{
+    localStorage.clear();
+    location.reload();
+  })
+} 
+
+
+
 // const name1 = document.querySelector("#name");
 // const email = document.querySelector("#email");
 // const password = document.querySelector("#password");
