@@ -8,6 +8,7 @@ use App\Models\Item;
 
 class AdminController extends Controller{
 
+    // Add item
     public function store(Request $request){
         $price = $request->price;
         $name = $request->name;
@@ -31,6 +32,7 @@ class AdminController extends Controller{
         ]);
     }
 
+    // Delete item
     public function destroy(Request $request){
         $id = request('id');
         $item = new Item;
@@ -44,6 +46,15 @@ class AdminController extends Controller{
         }
         return response()->json([
             "status" => "Item not found",
+        ]);
+    }
+
+    // Fetch all users
+    public function getUsers(){
+        $users = User::all();
+        return response()->json([
+            "status" => "success",
+            "users" => $users
         ]);
     }
 }

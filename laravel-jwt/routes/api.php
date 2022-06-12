@@ -37,6 +37,7 @@ Route::middleware("role.user")->group(function(){
 // Admin Routes
 Route::middleware("role.admin")->group(function(){
     Route::controller(AdminController::class)->group(function () {
+        Route::get('users', 'getUsers');
         Route::post('item', 'store');
         Route::put('item/{id}', 'update');
         Route::delete('item/{id}', 'destroy');
