@@ -10,9 +10,16 @@ class AdminController extends Controller{
 
     // Add item
     public function store(Request $request){
-        $price = $request->price;
         $name = $request->name;
+        $price = $request->price;
         $offer = $request->offer;
+        $item_check = Item::where('name', "$name")->get();
+        if(count($item_check) == 1){
+            return response()->json([
+                "status" => "error",
+                "message" => "Item Already exists"
+            ],400);
+        }
         if($price !== null && $name !== null && $offer !== null){
             $item = new Item;
             $item->name = $name;
