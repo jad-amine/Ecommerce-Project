@@ -1,7 +1,5 @@
-console.log('hi')
 
-
-  axios.get('http://localhost:8000/api/users', {
+axios.get('http://localhost:8000/api/users', {
   headers: {
     'Authorization': `bearer ${localStorage.getItem('token')}`
   }
