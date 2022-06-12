@@ -102,6 +102,34 @@ header > h1{
   border-radius: 10px;
 }
 
+.red{
+  color: red;
+}
+
+/* ========== Section Likes=============== */
+#likes{
+  margin-top: 100px;
+}
+
+#likes h1{
+  text-align: center;
+  font-size: 50px;
+}
+
+.likes{
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.likes div{
+  margin-top: 30px;
+  height: 200px;
+  border: 2px solid red;
+  width: 300px;
+  border-radius: 10px;
+}
 
 /* ========== Section Categories=========== */
 #categories{
@@ -120,7 +148,7 @@ footer{
   justify-content: space-around;
   align-items: center;
   font-size: 20px;
-  height: 50px;
+  min-height: 50px;
   background-color: gray;
 }
 
@@ -242,9 +270,11 @@ footer i{
 @media screen and (max-width:600px) {
   .offers div{
     min-width: 250px;
-
   }
 
+  footer{
+    flex-direction: column;
+  }
   #quote p{
     font-size: 30px;
   }
