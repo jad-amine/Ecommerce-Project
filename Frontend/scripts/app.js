@@ -17,7 +17,6 @@ axios.get("http://localhost:8000/api/offer")
     const offers = document.querySelector(".offers");
     let offer = res.data.items;
     offer.forEach(offer => {
-      // console.log(offer);
       var div = document.createElement('div');
       div.innerHTML = ` Name: ${offer.name} <br> ID: ${offer.id} <br><h4>Discount: ${offer.offer} %</h4>`
       offers.appendChild(div)
@@ -34,19 +33,20 @@ axios.get("http://localhost:8000/api/getLikes",
     return;
   };
   if(res.data.message == 'No likes'){
-    like_section.innerHTML = "You haven't Like Anything So Far !"
+    like_section.innerHTML = "You haven't Liked Anything So Far !"
     return;
   };
   let likes = res.data.result;
   for (let i=0; i < likes.length; i++){
-    console.log(likes[i])
     var div = document.createElement('div');
     div.innerHTML = ` Name: ${likes[i].name} <br> ID: ${likes[i].id}`
     let icon = document.createElement("i");
     icon.addEventListener("click", ()=>{
       axios.post(`http://localhost:8000/api/like/ ${likes[i].id}`,'',
       { headers: { Authorization: "Bearer" + `${localStorage.getItem('token')}`}})
-      .then(res => console.log(res.data));
+      .then(res => {
+        location.reload();
+        console.log(res.data)});
       icon.classList.toggle("red");
     })
     icon.classList.add("fa-solid");
@@ -66,28 +66,38 @@ axios.get("http://localhost:8000/api/items",
   let data = res.data;
   let items = data.items;
   let all_id = [];
-  console.log('all items', items);
   let user_likes = data.user;
-  console.log('user liked items', user_likes);
   let likes = [];
+  if(user_likes){
+    user_likes.forEach(like=>likes.push(like.id))
+  }
   items.forEach(item=>all_id.push(item.id))
-  user_likes.forEach(like=>likes.push(like.id))
-  // all_id.forEach(like=>console.log(likes.includes(like)))
-  // return;
   const section = document.querySelector(".items");
   items.forEach(item => {
     var div = document.createElement('div');
     div.innerHTML = ` Name: ${item.name} <br> ID: ${item.id}`
     let icon = document.createElement("i");
     icon.addEventListener("click", ()=>{
+      if(!localStorage.getItem('token')){
+        alert("Please Login to Like Items !")
+        return;
+      }
       axios.post(`http://localhost:8000/api/like/ ${item.id}`,'',
       { headers: { Authorization: "Bearer" + `${localStorage.getItem('token')}`}})
-      .then(res => console.log(res.data));
-      icon.classList.toggle("red");
+      .then(res => {
+        let data = res.data;
+        console.log(res.data)
+        if(data.status == "error"){
+          alert('Please Login to Like Items');
+          return;
+        } else{
+          icon.classList.toggle("red");
+          location.reload();
+        }
+      })
     })
     icon.classList.add("fa-solid");
     if(likes.includes(item.id)){
-      console.log('hi')
       icon.classList.add("red");
     }
     icon.classList.add("fa-heart");
