@@ -131,15 +131,32 @@ header > h1{
   border-radius: 10px;
 }
 
-/* ========== Section Categories=========== */
-#categories{
+/* ========== Section items=========== */
+#items{
   margin-top: 100px;
 }
 
-#categories h1{
+#items h1{
   text-align: center;
   font-size: 50px;
 }
+
+
+.items{
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.items div{
+  margin-top: 30px;
+  height: 200px;
+  border: 2px solid red;
+  width: 300px;
+  border-radius: 10px;
+}
+
 
 /* ========== Footer======== */
 footer{
@@ -255,6 +272,10 @@ footer i{
 /* Media Queries */
 
 @media screen and (max-width:900px) {
+  .banner ul{
+    display: none;
+  }
+  
   .offers div{
     width: 38%;
     margin-top: 40px;
@@ -277,9 +298,5 @@ footer i{
   }
   #quote p{
     font-size: 30px;
-  }
-
-  .banner ul{
-    display: none;
   }
 }
