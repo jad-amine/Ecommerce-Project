@@ -23,6 +23,14 @@ function postData(){
     headers: {
       'Authorization': `bearer ${localStorage.getItem('token')}`
     }
-  }).then(res => console.log(res.data))
-  .catch(err => alert('Item Already Exists'));
+  }).then(res => {
+    if(res.data.status == "error"){
+      alert("Item Already exists")
+    }
+    const added =document.querySelector("#added-success");
+    added.innerHTML = "Item Added !"
+    console.log(res.data)})
+  .catch(err =>{
+    alert('You are not an Admin !')});
+    location.replace("../index.html");
 }

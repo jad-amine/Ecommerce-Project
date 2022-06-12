@@ -23,8 +23,22 @@
   font-size: 70px;
 }
 
+#log-out{
+  cursor: pointer;
+  background-color: gray;
+  border: 0;
+  height: 40px;
+  width: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 40px 45% 0px;
+}
+
 .actions{
-  margin-top: 100px;
+  margin-top: 60px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -211,6 +225,13 @@
   background-color: rgb(35, 103, 220);
 }
 
+#added-success{
+  color: rgb(61, 180, 61);
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 /* ============== Get Users section ============ */
 #user-page{
   background-image: url(./public/Technology-Dekstop-Wallpapers.jpg);
@@ -240,7 +261,7 @@
   background-color: rgba(158, 158, 158, 0.5);
   border: 2px solid black;
   box-shadow: 0px 0px 15px white;
-  min-height: 300px;
+  height: auto;
   text-align: center;
   font-weight: bolder;
 }
@@ -265,15 +286,20 @@ td{
 
   #form{
     flex-direction: column;
-    height: auto;
     text-align: center;
+    gap: 10%;
   }
 }
 
 @media screen and (max-width:600px) {
   .offers div{
     min-width: 250px;
-
+  }
+  .actions{
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
   }
 
   #quote p{

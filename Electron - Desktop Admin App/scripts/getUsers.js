@@ -23,4 +23,7 @@ console.log('hi')
     cell5.innerHTML = user.updated_at;
   }
 })
-.catch(err=>console.log(err));
+.catch(err=>{
+  alert("You are not an Admin");
+  location.replace("../index.html");
+});
