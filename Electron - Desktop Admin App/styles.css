@@ -1,0 +1,198 @@
+/* styles.css */
+/* CSS Reset */
+*{
+  margin: 0;  
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}  
+
+/* Add styles here to customize the appearance of your app */
+body{
+  background-image: url(./public/8Wuslm.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  height: 130vh;
+}
+
+.container > h1{
+  color: white;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 70px;
+}
+
+.actions{
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.actions div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  color: white;
+  background-color: rgba(69, 69, 69, 0.7);
+  border-radius: 10px;
+  box-shadow: 3px 3px 4px 10px white;
+  cursor: pointer;
+}
+
+.actions div:hover{
+  background-color: rgba(79, 79, 79, 0.8);
+  box-shadow: 2px 2px 4px 10px grey;
+}
+
+.actions > a{
+  text-decoration: none;
+}
+
+/* =============Log In============ */
+#form{
+  background-image: url(./public/Technology-Dekstop-Wallpapers.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20%;
+}
+
+#form h1{
+  font-size: 50px;
+  color: white;
+}
+
+#already_user{
+  color: white;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+#already_user:hover{
+  color: gray;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+#form .back{
+  color: gray;
+  text-decoration: none;
+
+}
+
+#form p{
+  margin-top: 30px;
+  font-size: 30px;
+  color: white;
+}
+
+#login_input{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border: 2px solid rgb(6, 6, 118);
+  height: 400px;
+  width: 300px;
+  background-color: rgba(58, 58, 58, 0.9);
+  border-radius: 30px;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+#login_input button{
+  height: 40px;
+  border-radius: 30px;
+  background-color: blue;
+  color: white;
+  font-weight: bolder;
+  border: 0px;
+  margin-top: 20px;
+}
+
+#login_input button:hover{
+  background-color: rgb(14, 14, 193);
+  cursor: pointer;
+}
+
+#login_input a{
+  text-align:center;
+}
+
+#create_new_account{
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+#create_new_account:hover{
+  color: grey;
+}
+
+#login_input input{
+  width: 90%;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 5px;
+  color: blue;
+  font-weight: bolder;
+}
+
+/* ========== Add Items Section=========== */
+
+#item-specs{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  gap: 40px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+#item-specs input{
+  height: 40px;
+  color: white;
+  border: 3px solid white;
+  border-radius: 10px;
+}
+
+
+
+/* Media Queries */
+
+@media screen and (max-width:900px) {
+  .offers div{
+    width: 38%;
+    margin-top: 40px;
+  }
+
+  #form{
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .offers div{
+    min-width: 250px;
+
+  }
+
+  #quote p{
+    font-size: 30px;
+  }
+
+  .banner ul{
+    display: none;
+  }
+}
