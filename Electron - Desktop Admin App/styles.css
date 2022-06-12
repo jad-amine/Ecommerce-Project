@@ -7,19 +7,19 @@
 }  
 
 /* Add styles here to customize the appearance of your app */
-body{
+
+.container{
   background-image: url(./public/8Wuslm.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-  height: 130vh;
+  height: 120vh;
 }
 
 .container > h1{
   color: white;
   text-align: center;
-  margin-top: 40px;
   font-size: 70px;
 }
 
@@ -148,6 +148,14 @@ body{
 }
 
 /* ========== Add Items Section=========== */
+.item-page{
+  background-image: url(./public/8Wuslm.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  height: 120vh;
+}
 
 #item-specs{
   display: flex;
@@ -155,17 +163,58 @@ body{
   width: 500px;
   gap: 40px;
   margin: auto;
-  margin-top: 50px;
 }
 
 #item-specs input{
   height: 40px;
-  color: white;
+  font-weight: bolder;
   border: 3px solid white;
   border-radius: 10px;
 }
 
+/* ============== Get Users section ============ */
+#user-page{
+  background-image: url(./public/Technology-Dekstop-Wallpapers.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
 
+#user-page > h2{
+  color: white;
+  font-size: 40px;
+  text-decoration: underline;
+}
+
+#user-page > a{
+  color: gray;
+  text-decoration: none;
+}
+
+#users{
+  background-color: rgba(158, 158, 158, 0.5);
+  border: 2px solid black;
+  box-shadow: 0px 0px 15px white;
+  min-height: 300px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+#th{
+  background-color: white;
+}
+
+td{
+  min-width: 50px;
+  border: 2px solid black;
+  background-color: rgba(158, 158, 158, 0.5)
+}
 
 /* Media Queries */
 

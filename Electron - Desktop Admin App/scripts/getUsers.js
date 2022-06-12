@@ -7,14 +7,9 @@ console.log('hi')
   }
 }).then( res => {
   data = res.data.users;
-  // data = JSON.parse(data);
-  console.log(data);
-  for (let i=0; i<data.length; i++){
-    console.log(data[i]);
+  for (let i=0; i< data.length; i++){
     let table = document.querySelector("#users");
     let user = data[i];
-    // let row = `<tr><td>${user.id}</td><td>${user.name}</td><td>${user.email}</td><td>${user.updated_at}</td></tr>`
-    // table.appendChild(row);
     let row = table.insertRow(i+1);
     let cell1 = row.insertCell(0);
     let cell2 = row.insertCell(1);

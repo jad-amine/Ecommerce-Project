@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="../styles.css">
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,17 +9,21 @@
   <title>Document</title>
 </head>
 <body>
-  <table id="users">
-    <th>
-      <td>id</td>
-      <td>Name</td>
-      <td>Email</td>
-      <td>User Type</td>
-      <td>Create at</td>
-    </th>
-    <tr>
-    </tr>
-  </table>
+  <div id="user-page">
+    <h2>Users</h2>
+    <a href="./welcome.html"><- Back</a>
+    <table id="users">
+      <tr id="th">
+        <td>id</td>   
+        <td>Name</td>
+        <td>Email</td>
+        <td>User Type</td>
+        <td>Created at</td>
+      </tr>
+      <tr>
+      </tr>
+    </table>
+  </div>
   <script src="../scripts/getUsers.js"></script>
 </body>
 </html>
