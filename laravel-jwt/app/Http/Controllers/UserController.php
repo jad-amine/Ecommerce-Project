@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\ItemUser;
+use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -41,16 +42,16 @@ class UserController extends Controller{
         $user = Auth::user();
         $user = $user->id;
         $likes = ItemUser::where('user_id', "$user")->get();
-        $user = User::find($user);
-        $result = [];
-        foreach($user->items as $item){
-            $result[] = $item;
-        }
         if(count($likes) == 0){
             return response()->json([
                 "status" => "error",
                 "message" => "No likes"
             ]);
+        }
+        $user = User::find($user);
+        $result = [];
+        foreach($user->items as $item){
+            $result[] = $item;
         }
         return response()->json([
             "status" => "Likes retrieved",

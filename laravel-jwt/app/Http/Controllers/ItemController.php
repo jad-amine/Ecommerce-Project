@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\User;
+use App\Models\ItemUser;
+use Illuminate\Support\Facades\Auth;
 
 
 class ItemController extends Controller{
 
     public function index($id = null){
+        $user = Auth::user();
+        if($user){
+            $user = $user->items;
+        }
         if(!$id){
             $items = Item::all();
         } else{
@@ -17,7 +23,8 @@ class ItemController extends Controller{
         }
         return response()->json([
             "status" => "success",
-            "items" => $items
+            "items" => $items,
+            "user" => $user
         ]);
     }
 
