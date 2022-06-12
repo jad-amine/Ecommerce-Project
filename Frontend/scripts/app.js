@@ -11,13 +11,32 @@ if(localStorage.getItem('name')){
 } 
 
 
+axios.get("http://localhost:8000/api/getLikes",
+  {headers: { Authorization : `Bearer ${localStorage.getItem('token')}`}})
+  .then(res => {
+    console.log(res.data, 'likes');
+  });
 
-// const name1 = document.querySelector("#name");
-// const email = document.querySelector("#email");
-// const password = document.querySelector("#password");
-// const LogIn = document.querySelector("#LogIn");
-// const SignUp = document.querySelector("#SignUp");
-// const Like = document.querySelector("#Like");
+axios.get("http://localhost:8000/api/offer")
+  .then(res => {
+    const offers = document.querySelector(".offers");
+    let offer = res.data.items;
+    offer.forEach(offer => {
+      var div = document.createElement('div');
+      div.innerHTML = `${offer.name}`
+      let icon = document.createElement("i");
+      icon.addEventListener("click", ()=>{
+        console.log("liked");
+        icon.style.color = "red";
+      })
+      icon.classList.add("fa-solid");
+      icon.classList.add("fa-heart");
+      div.appendChild(icon);
+      offers.appendChild(div)
+    });
+  });
+
+
 
 
 // ================
