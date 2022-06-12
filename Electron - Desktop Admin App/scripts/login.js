@@ -14,9 +14,11 @@ log_in.addEventListener("click", ()=>{
   axios.post('http://localhost:8000/api/login', data)
   .then(res => {
     data = res.data;
+    console.log(data);
     localStorage.setItem('name',data.user.name);
     token = data.authorisation.token;
     localStorage.setItem('token', token);
+    location.href = "./pages/welcome.html"
   })
   .catch(err=>alert('Invalid email or password'))
 });
