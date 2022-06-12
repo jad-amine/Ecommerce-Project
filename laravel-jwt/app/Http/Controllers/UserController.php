@@ -13,7 +13,7 @@ class UserController extends Controller{
     public function addLike(Request $request){
         $user = Auth::user();
         $user = $user->id;
-        $item = (int)$request->item_id;
+        $item = (int)$request->id;
         $previous_like = ItemUser::where('user_id', $user)->where('item_id', $item)->get();
         if(count($previous_like) == 1){
             $previous_like[0]->delete();
@@ -36,14 +36,26 @@ class UserController extends Controller{
         ]);
     }
 
+    // Many to many relationship
     public function getLikes(){
         $user = Auth::user();
         $user = $user->id;
         $likes = ItemUser::where('user_id', "$user")->get();
+        $user = User::find($user);
+        $result = [];
+        foreach($user->items as $item){
+            $result[] = $item;
+        }
+        if(count($likes) == 0){
+            return response()->json([
+                "status" => "error",
+                "message" => "No likes"
+            ]);
+        }
         return response()->json([
             "status" => "Likes retrieved",
             "user" => $user,
-            "item" => $likes,
+            "result" => $result
         ]);
     }
 }
