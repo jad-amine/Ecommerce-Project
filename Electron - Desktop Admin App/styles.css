@@ -153,16 +153,37 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  position: relative;
   height: 120vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-page > h2{
+  font-size: 30px;
+  padding-top: 30px;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+#item-page-back{
+  text-align: center;
+  color: rgb(181, 181, 181);
+  text-decoration: none;
+  margin-bottom: 25px;
+  font-size: 20px;
 }
 
 #item-specs{
+  padding: 30px;
+  border-radius: 20px;
+  background-color: rgba(172, 172, 172, 0.6);
   display: flex;
   flex-direction: column;
   width: 500px;
-  gap: 40px;
-  margin: auto;
+  gap: 10px;
 }
 
 #item-specs input{
@@ -170,6 +191,24 @@
   font-weight: bolder;
   border: 3px solid white;
   border-radius: 10px;
+}
+
+#add-item{
+  cursor: pointer;
+  margin:20px auto 10px ;
+  width: 50%;
+  text-align: center;
+  height: 30px;
+  border-radius: 10px;
+  border: 0;
+  background-color: rgb(23, 80, 179);
+  box-shadow: 0 0 10px white;
+  color: white;
+  font-weight: bolder;
+}
+
+#add-item:hover{
+  background-color: rgb(35, 103, 220);
 }
 
 /* ============== Get Users section ============ */

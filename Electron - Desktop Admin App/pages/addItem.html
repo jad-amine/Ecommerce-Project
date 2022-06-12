@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="../styles.css">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,16 +10,20 @@
 </head>
 <body>
   <div class="item-page">
+    <h2>Add Item</h2>
+    <a id="item-page-back" href="./welcome.html"><- Back</a>
     <div id="item-specs">
       <h2>Item name:</h2> 
-      <input type="text" placeholder="Name">
+      <input id="name" type="text" placeholder="Name" required>
       <h2>Price:</h2> 
-      <input type="number" min="50" max="1500" placeholder="Price">
+      <input id="price" type="number" min="50" max="1500" placeholder="Price" required>
       <h2>Offer %:</h2> 
-      <input type="number" min="5" max="75"  placeholder="Offer ">
+      <input id="offer" type="number" min="5" max="75"  placeholder="Offer" required>
       <h2>Image:</h2> 
-      <p><input type="file" placeholder="Image "></p>
+      <p><input id="image" type="file" placeholder="Image "></p>
+      <button id="add-item">Add Item</button>
     </div>
   </div>
+  <script src="../scripts/addItem.js"></script>
 </body>
 </html>
