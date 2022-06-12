@@ -12,7 +12,7 @@ function postData(){
   if(!name1.value || !price.value || !offer.value){
     alert('Please fill all the fields');
     return;
-  } 
+  };
   let data = new FormData();
   data.append('name', name1.value);
   data.append('price', price.value);
@@ -23,5 +23,6 @@ function postData(){
     headers: {
       'Authorization': `bearer ${localStorage.getItem('token')}`
     }
-  }).then(res => console.log(res.data));
+  }).then(res => console.log(res.data))
+  .catch(err => alert('Item Already Exists'));
 }
