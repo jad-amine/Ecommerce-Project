@@ -18,6 +18,7 @@ axios.get("http://localhost:8000/api/offer")
     let offer = res.data.items;
     offer.forEach(offer => {
       var div = document.createElement('div');
+      div.style.backgroundImage = `url(${offer.image})`
       div.innerHTML = ` Name: ${offer.name} <br> ID: ${offer.id} <br><h4>Discount: ${offer.offer} %</h4>`
       offers.appendChild(div)
     });
@@ -75,6 +76,7 @@ axios.get("http://localhost:8000/api/items",
   const section = document.querySelector(".items");
   items.forEach(item => {
     var div = document.createElement('div');
+    div.style.backgroundImage = `url(${item.image})`
     div.innerHTML = ` Name: ${item.name} <br> ID: ${item.id}`
     let icon = document.createElement("i");
     icon.addEventListener("click", ()=>{
