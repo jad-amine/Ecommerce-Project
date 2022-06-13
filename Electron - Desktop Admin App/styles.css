@@ -350,6 +350,15 @@ td{
   background-color: rgb(255, 149, 149);
 }
 
+#result{
+  display: block;
+  background-color: rgb(104, 104, 104);
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  margin: 0px auto;
+}
+
 /* Media Queries */
 
 @media screen and (max-width:900px) {
