@@ -1,15 +1,8 @@
+
+// Grab elements and display user name
 let name1 = localStorage.getItem('name'); 
 const login = document.querySelector("#login-tab") 
 const logout = document.querySelector("#logout-tab") 
-if(localStorage.getItem('name')){
-  login.innerHTML = 'Welcome ' +  name1.toUpperCase();
-  logout.innerHTML = "Sign Out";
-  logout.addEventListener("click", ()=>{
-    localStorage.clear();
-    location.reload();
-  })
-} 
-
 
   // Populate offer section
 axios.get("http://localhost:8000/api/offer")
@@ -18,7 +11,8 @@ axios.get("http://localhost:8000/api/offer")
     let offer = res.data.items;
     offer.forEach(offer => {
       var div = document.createElement('div');
-      div.style.backgroundImage = `url(${offer.image})`
+      div.style.backgroundImage = `url(${offer.image})`;
+      div.classList.add('show_item');
       div.innerHTML = ` Name: ${offer.name} <br> ID: ${offer.id} <br><h4>Discount: ${offer.offer} %</h4>`
       offers.appendChild(div)
     });
@@ -29,19 +23,32 @@ axios.get("http://localhost:8000/api/getLikes",
 {headers: { Authorization : `Bearer ${localStorage.getItem('token')}`}})
 .then(res => {
   const like_section = document.querySelector(".likes");
+  // User not logged in
   if(res.data.message == 'Unauthenticated user'){
     like_section.innerHTML = "Please Login to add Items"
     return;
   };
+  // User logged in (change dispay)
+  login.innerHTML = 'Welcome ' +  name1.toUpperCase();
+  logout.innerHTML = "Sign Out";
+  logout.addEventListener("click", ()=>{
+    localStorage.clear();
+    location.reload();
+  })
+  // User doesn't have likes
   if(res.data.message == 'No likes'){
     like_section.innerHTML = "You haven't Liked Anything So Far !"
     return;
   };
+  // User have likes
   let likes = res.data.result;
   for (let i=0; i < likes.length; i++){
     var div = document.createElement('div');
-    div.innerHTML = ` Name: ${likes[i].name} <br> ID: ${likes[i].id}`
+    div.innerHTML = ` Name: ${likes[i].name} <br> ID: ${likes[i].id}`;
+    div.style.backgroundImage = `url(${likes[i].image})`;
+    div.classList.add('show_item');
     let icon = document.createElement("i");
+    // Like button functionality
     icon.addEventListener("click", ()=>{
       axios.post(`http://localhost:8000/api/like/ ${likes[i].id}`,'',
       { headers: { Authorization: "Bearer" + `${localStorage.getItem('token')}`}})
@@ -76,8 +83,10 @@ axios.get("http://localhost:8000/api/items",
   const section = document.querySelector(".items");
   items.forEach(item => {
     var div = document.createElement('div');
-    div.style.backgroundImage = `url(${item.image})`
-    div.innerHTML = ` Name: ${item.name} <br> ID: ${item.id}`
+    div.style.backgroundImage = `url(${item.image})`;
+    div.classList.add('show_item');
+    div.innerHTML = ` Name: ${item.name} <br> ID: ${item.id}`;
+    // Like button functionality
     let icon = document.createElement("i");
     icon.addEventListener("click", ()=>{
       if(!localStorage.getItem('token')){
