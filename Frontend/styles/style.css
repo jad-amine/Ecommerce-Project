@@ -94,22 +94,32 @@ header > h1{
 }
 
 .show_item{
+  height: 80%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
 }
 
-.offers div{
+.offers > div{
   margin-top: 30px;
-  height: 300px;
+  height: 330px;
   border: 2px solid red;
   width: 300px;
   border-radius: 10px;
 }
 
+.offers > div > h2{
+  color: red;
+}
+
 .red{
   color: red;
+}
+
+i{
+  margin-top: 3px;
+  font-size: 25px;
 }
 
 /* ========== Section Likes=============== */
@@ -129,13 +139,18 @@ header > h1{
   justify-content: space-around;
 }
 
-.likes div{
+.likes > div{
   margin-top: 30px;
-  height: 200px;
+  height: 405px;
   border: 2px solid red;
   width: 300px;
   border-radius: 10px;
 }
+
+.likes > div > h2{
+  color: red;
+}
+
 
 /* ========== Section items=========== */
 #items{
@@ -155,9 +170,9 @@ header > h1{
   justify-content: space-around;
 }
 
-.items div{
+.items > div{
   margin-top: 30px;
-  height: 200px;
+  height: 430px;
   border: 2px solid red;
   width: 300px;
   border-radius: 10px;
@@ -282,7 +297,7 @@ footer i{
     display: none;
   }
   
-  .offers div{
+  .offers > div{
     width: 38%;
     margin-top: 40px;
   }
@@ -295,7 +310,7 @@ footer i{
 }
 
 @media screen and (max-width:600px) {
-  .offers div{
+  .offers > div{
     min-width: 250px;
   }
 

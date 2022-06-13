@@ -10,11 +10,18 @@ axios.get("http://localhost:8000/api/offer")
     const offers = document.querySelector(".offers");
     let offer = res.data.items;
     offer.forEach(offer => {
+      var container1 = document.createElement("div");
       var div = document.createElement('div');
       div.style.backgroundImage = `url(${offer.image})`;
       div.classList.add('show_item');
-      div.innerHTML = ` Name: ${offer.name} <br> ID: ${offer.id} <br><h4>Discount: ${offer.offer} %</h4>`
-      offers.appendChild(div)
+      let p = document.createElement("p");
+      let h2 = document.createElement("h2");
+      h2.innerText = ` ${offer.name}`;
+      p = `Discount: ${offer.offer} %`
+      container1.appendChild(div);
+      container1.append(h2);
+      container1.append(p);
+      offers.appendChild(container1);
     });
   });
 
@@ -43,9 +50,13 @@ axios.get("http://localhost:8000/api/getLikes",
   // User have likes
   let likes = res.data.result;
   for (let i=0; i < likes.length; i++){
+    var container1 = document.createElement("div");
     var div = document.createElement('div');
-    div.innerHTML = ` Name: ${likes[i].name} <br> ID: ${likes[i].id}`;
     div.style.backgroundImage = `url(${likes[i].image})`;
+    let h2 = document.createElement("h2");
+    h2.innerText = `${likes[i].name}`;
+    let p = document.createElement("p");
+    p = `Discount: ${likes[i].offer} %`;
     div.classList.add('show_item');
     let icon = document.createElement("i");
     // Like button functionality
@@ -61,8 +72,11 @@ axios.get("http://localhost:8000/api/getLikes",
     icon.classList.add("red");
     icon.classList.add("fa-heart");
     icon.style.cursor = "pointer";
-    div.appendChild(icon);
-    like_section.appendChild(div)
+    container1.appendChild(div);
+    container1.append(icon);
+    container1.append(h2);
+    container1.append(p);
+    like_section.appendChild(container1);
   }
 })
 
@@ -82,10 +96,14 @@ axios.get("http://localhost:8000/api/items",
   items.forEach(item=>all_id.push(item.id))
   const section = document.querySelector(".items");
   items.forEach(item => {
+    var container1 = document.createElement("div");
     var div = document.createElement('div');
+    let h2 = document.createElement("h2");
+    let p = document.createElement("p");
+    h2.innerText = `${item.name}`;
+    p = `Discount: ${item.offer} %`;
     div.style.backgroundImage = `url(${item.image})`;
     div.classList.add('show_item');
-    div.innerHTML = ` Name: ${item.name} <br> ID: ${item.id}`;
     // Like button functionality
     let icon = document.createElement("i");
     icon.addEventListener("click", ()=>{
@@ -113,7 +131,10 @@ axios.get("http://localhost:8000/api/items",
     }
     icon.classList.add("fa-heart");
     icon.style.cursor = "pointer";
-    div.appendChild(icon);
-    section.appendChild(div)
+    container1.appendChild(div);
+    container1.append(icon);
+    container1.append(h2);
+    container1.append(p);
+    section.appendChild(container1);
   });
 })
