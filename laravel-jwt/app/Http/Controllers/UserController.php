@@ -20,9 +20,6 @@ class UserController extends Controller{
             $previous_like[0]->delete();
             return response()->json([
                 "status" => "Success, like removed",
-                "user" => $user,
-                "previous_like" => $item,
-                "hello" => $previous_like
             ]);
         }
         $itemUser = new ItemUser;
